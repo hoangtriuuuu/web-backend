@@ -9,14 +9,11 @@ app.use(cors()); // Cho phép frontend gọi API
 
 // Thay thông tin theo máy của mày
 const dbConfig = {
-  user: 'webuser1', // hoặc user mày dùng
-  password: '123456',
-  server: 'DESKTOP-B6AKE4M', // hoặc IP máy chủ
-  database: 'shoesstore',
-  options: {
-    trustServerCertificate: true,
-    encrypt: false
-  }
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_SERVER,
+  database: process.env.DB_NAME,
+  options: { encrypt: false, trustServerCertificate: true }
 };
 
 sql.connect(dbConfig)
